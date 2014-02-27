@@ -1,8 +1,5 @@
 package com.cgi.lang;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -36,7 +33,7 @@ public class StringUtils {
             return  null;
         }
         if(delimiter == null) {
-            return  str;
+            return new String(str);
         }
         if (str.length() == 0){
             return "";
@@ -49,6 +46,7 @@ public class StringUtils {
 
         reverseElementsInArrayExceptTokens(splitString);
 
+        //this will return a new copy of string
         return join(splitString, delimiter);
     }
 
@@ -64,25 +62,16 @@ public class StringUtils {
         String escapedDelimiter = Pattern.quote(delimiter);
 
         //split the text to array
-        String[] splitString = str.split(escapedDelimiter);
-
-        //fix: because for bad behavior of string.split:
-        //     if the token is in the end of string, it will be missing after split
-        if (str.endsWith(delimiter)) {
-            List<String> list = new ArrayList<String>(Arrays.asList(splitString));
-            list.add("");
-            return list.toArray(new String[0]);
-        }
-
-        return splitString;
+        //must have second parameter or else split looses delimiters at end
+        return str.split(escapedDelimiter, str.length());
     }
 
 
     /**
-     * Join Array of string to string
+     * Join Array of strings to string
      * @param splitString Array of string including "" as delimiter placeholder
      * @param delimiter delimiter
-     * @return string
+     * @return new string
      */
     private static String join(String[] splitString, String delimiter) {
 

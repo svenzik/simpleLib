@@ -50,16 +50,16 @@ public class StringUtilsTest {
 
     @Test
     public void testReverseStringWithDelimiterAsLast() throws Exception {
-        String original = "vanitas vanitatum omnia vanitas ";
+        String original = "vanitas vanitatum omnia vanitas  ";
         String result = StringUtils.reverseString(original);
-        Assert.assertEquals("vanitas omnia vanitatum vanitas ", result);
+        Assert.assertEquals("vanitas omnia vanitatum vanitas  ", result);
     }
 
     @Test
     public void testReverseStringWithDelimiterAsFirst() throws Exception {
-        String original = " vanitas vanitatum omnia vanitas";
+        String original = "  vanitas vanitatum omnia vanitas";
         String result = StringUtils.reverseString(original);
-        Assert.assertEquals(" vanitas omnia vanitatum vanitas", result);
+        Assert.assertEquals("  vanitas omnia vanitatum vanitas", result);
     }
 
     @Test
