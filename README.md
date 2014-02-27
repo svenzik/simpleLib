@@ -8,7 +8,7 @@ Could have used Guava `Splitter.on(' ').split("vanitas vanitatum omnia vanitas")
 but adding Guava dependecy for one method seemed like overdoing.
 In real life one should use the Guava lib.
 
-Created my own implementation - "_a__b_c_" to return "_c__b_a_". Here the `_` is space.
+Created my own implementation - `_a____b_c_` to return `_c____b_a_`. Here the `_` is space.
 
 UnitTests are in `simpleLib/src/test/java/com/cgi/lang/StringUtilsTest.java`
 
